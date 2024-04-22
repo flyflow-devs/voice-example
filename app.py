@@ -39,14 +39,12 @@ class LLMMock:
             # model="gpt-4-turbo",
             model="flyflow-voice-small",
             messages=self.messages,  # Use only the last 5 messages
-            response_format={"type": "json_object"},
         )
         response = chat_completion.choices[0].message.content
         self.messages.append({"role": "assistant", "content": response})
 
         end_time = time.time()  # Stop the timer
         execution_time = end_time - start_time
-        print(f"Execution time: {execution_time:.2f} seconds")
 
         yield {
             "response_id": request['response_id'],
