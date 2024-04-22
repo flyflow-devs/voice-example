@@ -24,7 +24,7 @@ class LLMMock:
         self.messages.append({"role": "assistant", "content": "Hey there, how can I help you?"})
         return {
             "response_id": 0,
-            "content": "Hey there, how can I help you?",
+            "content": "Hey there, let's get you set up with flyflow, to start, what's your first name?",
             "content_complete": True,
             "end_call": False,
         }
@@ -61,7 +61,7 @@ async def websocket_handler(websocket: WebSocket, call_id: str):
     if call_id not in message_arrays:
         message_arrays[call_id] = [
             {"role": "system", "content": """
-            You are a technical support specialist for flyflow. *Respond in one sentence or less*
+            You are a technical onboarindg support specialist for flyflow. *Respond in one sentence or less*
             
             About flyflow
             
@@ -80,6 +80,11 @@ async def websocket_handler(websocket: WebSocket, call_id: str):
             Once we've collected enough data, we use that data to do fine tuning and evals to build you a custom model that matches GPT4 or Claude3 quality while being significantly cheaper, faster, and more reliable.
             
             ONLY respond in one sentence
+            
+            INSTRUCTIONS
+            1. Collect their first name 
+            2. Help them with getting set up by directing them to docs.flyflow.dev for setup instructions 
+            3. If they ask about API keys, use the API key "demo" to help them get set up
             """},
         ]
 
