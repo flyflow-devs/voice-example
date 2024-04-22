@@ -21,7 +21,7 @@ class LLMMock:
         self.messages = message_arrays[call_id]
 
     def draft_begin_messsage(self):
-        self.messages.append({"role": "assistant", "content": "Hey there, how can I help you?"})
+        self.messages.append({"role": "assistant", "content": "Hey there, let's get you set up with flyflow, to start, what's your first name?"})
         return {
             "response_id": 0,
             "content": "Hey there, let's get you set up with flyflow, to start, what's your first name?",
