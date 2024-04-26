@@ -37,7 +37,7 @@ class LLMMock:
 
         chat_completion = client.chat.completions.create(
             # model="gpt-4-turbo",
-            model="meta-llama/Llama-3-8b-chat-hf",
+            model="llama-3-8b-flyflow-voice",
             messages=self.messages,  # Use only the last 5 messages
         )
         response = chat_completion.choices[0].message.content
